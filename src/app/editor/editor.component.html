@@ -1,0 +1,10 @@
+<body>
+    <div class="card">
+        <div class="card-body">
+            <quill-editor [(ngModel)]="editorContent"></quill-editor>
+            <h2>Please provide some tags</h2>
+            <input #Tag type="text" placeholder="Tags" required>
+            <button (click)="save(editorContent, Tag.value)" routerLink="/re1">Save</button>
+        </div>
+    </div>
+</body>
