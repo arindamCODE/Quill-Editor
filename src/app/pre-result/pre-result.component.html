@@ -1,35 +1,32 @@
 <body>
     <div class="container">
-        <h2>Results</h2>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Content</th>
-                </tr>
-            </thead>
-            <tbody *ngFor="let con of content">
-                <tr>
-                    <!-- <td>{{con.content}}</td> -->
-                    <td [innerHTML]="con.content"></td>
-                    <button (click)="edit(con.id)" routerLink='/ed'>Edit</button>
-                    <button routerLink='/pre' data-toggle="modal" data-target="#MyModal">Delete</button>
-                </tr>
-                <div id="MyModal" class="modal fade" role="dialog">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button class="close" data-dismiss="modal">&times;</button>
-                            </div>
-                            <div class="modal-body">Are you sure you want to delete ?</div>
-                            <div class="modal-footer">
-                                <button (click)="delete(con.id)">Confirm</button>
-                                <button data-dismiss="modal">Cancel</button>
-                            </div>
+        <h4>My Files</h4>
+        <div class="card" *ngFor="let con of content">
+            <a href="" routerLink="/view" (click)="view(con)">
+                <div class="card-body">
+                    <div class="card-body" [innerHTML]="con.content">
+                    </div>
+                </div>
+            </a>
+            <div class="card-body">
+                <button class="btn btn-primary btn-lg" (click)="edit(con)" routerLink='/ed'>Edit</button>
+                <button class="btn btn-primary btn-lg" routerLink='/pre' data-toggle="modal" data-target="#MyModal" (click)="index = con.id">Delete</button>
+            </div>
+
+            <div id="MyModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">Are you sure you want to delete ?</div>
+                        <div class="modal-footer">
+                            <button class="btn btn-danger" (click)="delete(index)">Confirm</button>
+                            <button class="btn btn-primary" data-dismiss="modal">Cancel</button>
                         </div>
                     </div>
                 </div>
-            </tbody>
-        </table>
+            </div>
+        </div>
     </div>
-
 </body>

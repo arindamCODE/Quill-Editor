@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 
-export class PutService {
+export class RemoveFavService {
     constructor(private http: Http) {
 
     }
@@ -16,13 +16,25 @@ export class PutService {
 
     private url1: string;
     content: ContentID;
-    public fav: boolean = false;
-    public user: string = null;
+    public id: number;
+    public con: string;
+    public tags: string;
+    public favourite: boolean;
+    public user: string;
 
-    putContent(id: number, con: string, tags: string) {
+    setFavContent(id: number, con: string, tags: string, favourite: boolean, users: string) {
+        this.id = id;
+        this.con = con;
+        this.tags = tags;
+        this.favourite = favourite;
+        this.user = users;
+    }
 
-        this.url1 = `${this.url}/${id}`;
-        this.content = new ContentID(id, con, tags, this.fav, this.user);
+
+    putFavContent(fav: boolean) {
+
+        this.url1 = `${this.url}/${this.id}`;
+        this.content = new ContentID(this.id, this.con, this.tags, fav, this.user);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 

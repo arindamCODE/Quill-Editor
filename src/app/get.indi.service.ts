@@ -8,20 +8,27 @@ import 'rxjs/add/operator/map';
 export class GetIndiService 
 {
     public url: string;
-    content: ContentID;
-
+    public content: ContentID;
+    public content1: ContentID;
     data: any;
     constructor(private http: Http) {}  
 
-    getContent(url: string)
+    /* getContent(url: string)
     {
-        this.url = url;  
-        this.http.get(this.url)    .subscribe(result => {           
-            this.content = result.json() as ContentID;
-        }, error => console.error(error)); 
+        this.url = url; 
 
-      //  this.http.get(this.url).map(content => this.content);
-        
-   
+        this.http.get(this.url).subscribe(result => {
+            this.content = result.json() as ContentID;
+            console.log(this.content);
+            console.log(this.url);
+            this.setContent(this.content);
+        }, error => console.error(error)); */
+      //  this.http.get(this.url).map(content => this.content); 
+    /* } */
+
+    setContent(content: ContentID)
+    {
+        this.content1 = content;
+        console.log(this.content1);
     }
 }

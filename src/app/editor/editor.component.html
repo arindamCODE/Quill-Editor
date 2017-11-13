@@ -2,9 +2,13 @@
     <div class="card">
         <div class="card-body">
             <quill-editor [(ngModel)]="editorContent"></quill-editor>
-            <h2>Please provide some tags</h2>
+        </div>
+        <div class="card-body">
+            <h4>Please provide some tags</h4>
             <input #Tag type="text" placeholder="Tags" required>
-            <button (click)="save(editorContent, Tag.value)" routerLink="/re1">Save</button>
+        </div>
+        <div class="card-body">
+            <button class="btn btn-primary btn-lg" (click)="save(editorContent, Tag.value)" routerLink="/re1">Save</button>
         </div>
     </div>
 </body>

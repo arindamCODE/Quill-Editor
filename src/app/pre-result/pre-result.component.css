@@ -1,0 +1,13 @@
+.btn-primary {
+    background-color: #6d7fcc;
+}
+
+.btn-lg {
+    background-color: #6d7fcc;
+}
+
+.card-body {
+    line-height: 1.2em;
+    height: 6.6em;
+    overflow: hidden;
+}

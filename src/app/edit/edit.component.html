@@ -1,10 +1,14 @@
 <body>
     <div class="card">
-        <div class="card-body" *ngFor="let con of content">
-            <quill-editor [(ngModel)]="con.content"></quill-editor>
-            <h2>Please provide some tags</h2>
-            <input #Tag type="text" placeholder="Tags" required>
-            <button (click)='update(con.id, con.content, Tag.value)' routerLink='/re2'>Save</button>
+        <div class="card-body">
+            <quill-editor [(ngModel)]="content.content"></quill-editor>
+        </div>
+        <div class="card-body">
+            <h4>Please provide some tags</h4>
+            <input [(ngModel)]="content.metaTags" #Tag type="text" placeholder="Tags" required>
+        </div>
+        <div class="card-body">
+            <button class="btn btn-primary btn-lg" (click)='update(content.id, content.content, Tag.value)' routerLink='/re2'>Save</button>
         </div>
     </div>
 </body>

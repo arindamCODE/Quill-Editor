@@ -1,3 +1,6 @@
+import { RemoveFavService } from './remove.fav.service';
+import { ViewService } from './view.service';
+import { PutFavService } from './put.fav.service';
 import { DeleteService } from './delete.service';
 import { PutService } from './put.service';
 import { GetIndiService } from './get.indi.service';
@@ -17,6 +20,7 @@ import { PreResultComponent } from './pre-result/pre-result.component';
 import { EditComponent } from './edit/edit.component';
 import { RedirectOneComponent } from './redirect-one/redirect-one.component';
 import { RedirectTwoComponent } from './redirect-two/redirect-two.component';
+import { ViewComponent } from './view/view.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/edit', pathMatch: 'full' },
@@ -24,7 +28,8 @@ const routes: Routes = [
   { path: 'pre', component: PreResultComponent },
   { path: 'ed', component: EditComponent },
   { path: 're1', component: RedirectOneComponent },
-  { path: 're2', component: RedirectTwoComponent }
+  { path: 're2', component: RedirectTwoComponent },
+  { path: 'view', component: ViewComponent }
 
   /* { path: 'welcome', component: WelcomeComponent },
   { path: 'forms', component: FormsComponent },
@@ -41,7 +46,8 @@ const routes: Routes = [
     PreResultComponent,
     EditComponent,
     RedirectOneComponent,
-    RedirectTwoComponent
+    RedirectTwoComponent,
+    ViewComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +56,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     FormsModule
   ],
-  providers: [PostService, GetIndiService, EditComponent, PreResultComponent, PutService, DeleteService],
+  providers: [PostService, GetIndiService, EditComponent, PreResultComponent, PutService, DeleteService, PutFavService, ViewService, RemoveFavService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
