@@ -1,14 +1,31 @@
-<body>
+<!--<body>
     <div class="card">
         <div class="card-body">
             <quill-editor [(ngModel)]="editorContent"></quill-editor>
         </div>
         <div class="card-body">
-            <h4>Please provide some tags</h4>
-            <input #Tag type="text" placeholder="Tags" required>
+            <input #Tag type="text" placeholder="Please provide some tags" required>
         </div>
         <div class="card-body">
             <button class="btn btn-primary btn-lg" (click)="save(editorContent, Tag.value)" routerLink="/re1">Save</button>
         </div>
     </div>
-</body>
+</body>-->
+
+<div class="container">
+    <mat-card class="editor-card">
+        <mat-card-content>
+            <quill-editor [(ngModel)]="editorContent"></quill-editor>
+        </mat-card-content>
+    </mat-card>
+    <mat-card class="input-card">
+        <md-card-content>
+            <mat-form-field>
+                <input #Tag matInput placeholder="Provide some Tags">
+            </mat-form-field>
+        </md-card-content>
+    </mat-card>
+    <mat-card class="button-card">
+        <button mat-raised-button color="primary" (click)="save(editorContent, Tag.value)" routerLink="/re1">Save</button>
+    </mat-card>
+</div>

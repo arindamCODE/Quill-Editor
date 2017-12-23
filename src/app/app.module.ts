@@ -1,3 +1,5 @@
+import { MaterialModule } from './material-module/material-module.module';
+import { IsDeleteService } from './IsDelete.service';
 import { RemoveFavService } from './remove.fav.service';
 import { ViewService } from './view.service';
 import { PutFavService } from './put.fav.service';
@@ -12,6 +14,7 @@ import { FormControl, FormsModule } from '@angular/forms';
 import { NgModel } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule, ConnectionBackend } from '@angular/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { AppComponent } from './app.component';
@@ -54,9 +57,20 @@ const routes: Routes = [
     QuillEditorModule,
     HttpModule,
     RouterModule.forRoot(routes),
-    FormsModule
+    FormsModule,
+    MaterialModule,
+    BrowserAnimationsModule
   ],
-  providers: [PostService, GetIndiService, EditComponent, PreResultComponent, PutService, DeleteService, PutFavService, ViewService, RemoveFavService],
+  providers: [PostService, 
+    GetIndiService, 
+    EditComponent, 
+    PreResultComponent, 
+    PutService, 
+    DeleteService, 
+    PutFavService, 
+    ViewService, 
+    RemoveFavService,
+    IsDeleteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

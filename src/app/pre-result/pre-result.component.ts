@@ -1,3 +1,4 @@
+import { IsDeleteService } from './../IsDelete.service';
 import { RemoveFavService } from './../remove.fav.service';
 import { ViewService } from './../view.service';
 import { ViewComponent } from './../view/view.component';
@@ -15,53 +16,43 @@ import { Http } from '@angular/http';
   styleUrls: ['./pre-result.component.css']
 })
 
-export class PreResultComponent implements OnInit {
-
-  public ID: string;
-  public id: number;
-  public id2: number;
-  public id3: number;
+export class PreResultComponent implements OnInit 
+{
   public content: ContentID[];
+  public content1: ContentID[];
+
   public url: string = 'http://localhost:5000/api/content';
-  public url2: string;
-  public value: string;
-  public tags: string;
-  public index: number;
-  public con: string;
+
   public favourite: boolean;
   public favourite1: boolean;
-  public users: string;
+  
   public con2: ContentID;
-  public con3: ContentID; 
 
-  constructor(private http: Http, private obj: GetIndiService, private obj1: DeleteService, private obj2: PutFavService, private obj3: ViewService, private obj4: RemoveFavService)
+  public con5: ContentID;
+  public sample: string;
+  public limit: number = 200;
+  public dots: string = "....";
+  
+  public idDel: number;
+  public conDel: string;
+  public tagDel: string;
+  public favDel: boolean;
+  public userDel: string;
+  public isDel: boolean; 
+
+  constructor(private http: Http, private obj: GetIndiService, private obj1: DeleteService, private obj2: PutFavService, private obj3: ViewService, private obj4: RemoveFavService, private obj5: IsDeleteService)
   {
 
     http.get(this.url).subscribe(result => {
       this.content = result.json() as ContentID[];
+      this.content1 = this.content.filter(obj => obj.isDelete == false);
     }, error => console.error(error));
   }
 
   edit(con: ContentID)
   {
     console.log(con);
-    
     this.obj.setContent(con);
-    
-    /* this.id = con.id;
-    this.ID = this.id.toString();
-    this.url2 = `${this.url}/${this.ID}`;
-    console.log(this.ID);
-    console.log(this.url2);
-    this.obj.getContent(this.url2); */ 
-  }
-
-  delete(id: number)
-  {
-     this.id2 = id;
-     console.log(this.id2);
-     this.obj1.deleteContent(this.id2);
-     window.location.reload();  
   }
 
   view(content: ContentID)
@@ -70,12 +61,39 @@ export class PreResultComponent implements OnInit {
     this.favourite = true;
     this.favourite1 = false;
     this.obj3.show(this.con2);
-    this.obj2.setFavContent(this.con2.id, this.con2.content,this.con2.metaTags, this.favourite, this.con2.users);
-    this.obj4.setFavContent(this.con2.id, this.con2.content, this.con2.metaTags, this.favourite1, this.con2.users);
-  }
-  ngOnInit() {
-     
+    this.obj2.setFavContent(this.con2.id, this.con2.value,this.con2.metaTags, this.favourite, this.con2.users, this.con2.isDelete);
+    this.obj4.setFavContent(this.con2.id, this.con2.value, this.con2.metaTags, this.favourite1, this.con2.users, this.con2.isDelete);
   }
 
+  addDots(con: ContentID)
+  {
+    this.sample = con.value;
+    if(this.sample.length > this.limit)
+      {
+        this.sample = this.sample.substring(0, this.limit) + this.dots;
+      }
+      return this.sample;
+  }
 
+  preDelete(content: ContentID)
+  {
+    this.con5 = content;
+
+    this.idDel = this.con5.id;
+    this.conDel = this.con5.value;
+    this.tagDel = this.con5.metaTags;
+    this.favDel = this.con5.favourites;
+    this.userDel = this.con5.users;
+    this.isDel = this.con5.isDelete;
+
+    this.obj5.setDelContent(this.idDel, this.conDel, this.tagDel, this.favDel, this.userDel, this.isDel);    
+  }
+
+  delete()
+  {
+    this.obj5.putDelContent();
+    window.location.reload();
+  }
+
+  ngOnInit() {}
 }

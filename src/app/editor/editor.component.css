@@ -9,3 +9,7 @@ input {
 .btn-lg {
     background-color: #6d7fcc;
 }
+
+.mat-form-field {
+    width: 100%;
+}

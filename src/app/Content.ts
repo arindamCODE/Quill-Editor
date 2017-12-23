@@ -1,10 +1,10 @@
 
 export class Content {
-    content: string;
+    value: string;
     metaTags: string;
 
-    constructor(content: string, metaTags: string) {
-        this.content = content;
+    constructor(value: string, metaTags: string) {
+        this.value = value;
         this.metaTags = metaTags;
     }
 

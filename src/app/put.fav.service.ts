@@ -21,14 +21,16 @@ export class PutFavService {
     public tags: string;
     public favourite: boolean;
     public user: string;
+    public isDelete: boolean;
 
-    setFavContent(id: number, con: string, tags: string, favourite: boolean, users: string)
+    setFavContent(id: number, con: string, tags: string, favourite: boolean, users: string, isDelete: boolean)
     {
         this.id = id;
         this.con = con;
         this.tags = tags;
         this.favourite = favourite;
         this.user = users;
+        this.isDelete = isDelete;
     }
 
 
@@ -36,7 +38,7 @@ export class PutFavService {
     {
 
         this.url1 = `${this.url}/${this.id}`;
-        this.content = new ContentID(this.id, this.con, this.tags, fav, this.user);
+        this.content = new ContentID(this.id, this.con, this.tags, fav, this.user, this.isDelete);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 

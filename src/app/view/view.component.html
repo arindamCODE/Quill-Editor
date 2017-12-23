@@ -3,13 +3,13 @@
     <div class="card">
         <div class="card-body">
             <!-- <div [innerHTML]="con1.content"></div> -->
-            <article [innerHTML]="con1.content"></article>
+            <article [innerHTML]="con1.value"></article>
         </div>
         <div class="card-body" *ngIf="con1.favourites === false">
             <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#MyModal1" (click)="change()">Add To Favourites</button>
         </div>
         <div class="card-body" *ngIf="con1.favourites === true">
-            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#MyModal2" (click)="change1()">Remove</button>
+            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#MyModal2" (click)="change1()">Remove From Favourites</button>
         </div>
     </div>
 </div>

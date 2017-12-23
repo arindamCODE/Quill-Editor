@@ -18,11 +18,12 @@ export class PutService {
     content: ContentID;
     public fav: boolean = false;
     public user: string = null;
+    public isDelete: boolean = false;
 
     putContent(id: number, con: string, tags: string) {
 
         this.url1 = `${this.url}/${id}`;
-        this.content = new ContentID(id, con, tags, this.fav, this.user);
+        this.content = new ContentID(id, con, tags, this.fav, this.user, this.isDelete);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 

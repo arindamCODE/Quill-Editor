@@ -1,14 +1,13 @@
 <body>
     <div class="card">
         <div class="card-body">
-            <quill-editor [(ngModel)]="content.content"></quill-editor>
+            <quill-editor [(ngModel)]="content.value"></quill-editor>
         </div>
         <div class="card-body">
-            <h4>Please provide some tags</h4>
-            <input [(ngModel)]="content.metaTags" #Tag type="text" placeholder="Tags" required>
+            <input [(ngModel)]="content.metaTags" #Tag type="text" placeholder="Please provide some tags" required>
         </div>
         <div class="card-body">
-            <button class="btn btn-primary btn-lg" (click)='update(content.id, content.content, Tag.value)' routerLink='/re2'>Save</button>
+            <button class="btn btn-primary btn-lg" (click)='update(content.id, content.value, Tag.value)' routerLink='/re2'>Save</button>
         </div>
     </div>
 </body>

@@ -1,16 +1,14 @@
-<body>
+<!-- <body>
     <div class="container">
         <h4>My Files</h4>
-        <div class="card" *ngFor="let con of content">
+        <div class="card" *ngFor="let con of content1">
             <a href="" routerLink="/view" (click)="view(con)">
-                <div class="card-body">
-                    <div class="card-body" [innerHTML]="con.content">
-                    </div>
+                <div class="card-body" [innerHTML]="addDots(con)">
                 </div>
             </a>
             <div class="card-body">
                 <button class="btn btn-primary btn-lg" (click)="edit(con)" routerLink='/ed'>Edit</button>
-                <button class="btn btn-primary btn-lg" routerLink='/pre' data-toggle="modal" data-target="#MyModal" (click)="index = con.id">Delete</button>
+                <button class="btn btn-primary btn-lg" routerLink='/pre' data-toggle="modal" data-target="#MyModal" (click)="preDelete(con)">Delete</button>
             </div>
 
             <div id="MyModal" class="modal fade" role="dialog">
@@ -21,7 +19,7 @@
                         </div>
                         <div class="modal-body">Are you sure you want to delete ?</div>
                         <div class="modal-footer">
-                            <button class="btn btn-danger" (click)="delete(index)">Confirm</button>
+                            <button class="btn btn-danger" (click)="delete()">Confirm</button>
                             <button class="btn btn-primary" data-dismiss="modal">Cancel</button>
                         </div>
                     </div>
@@ -29,4 +27,60 @@
             </div>
         </div>
     </div>
-</body>
+</body> -->
+
+<!-- <div class="container">
+    <mat-card class="result-card" *ngFor="let con of content1">
+        <mat-card-content [innerHTML]="addDots(con)">
+        </mat-card-content>
+    </mat-card>
+</div> -->
+
+<!-- fxLayout="row" fxFlex.md="70" fxLayoutWrap class="card-deck-container mat-elevation-z4"
+fxFlex class="card-item" -->
+
+
+<!-- 
+<mat-card class="md-padding" layout-xs="column" layout="row" *ngFor="let con of content1">
+    <mat-card-content flex-xs flex-gt-xs="50" layout="column" [innerHTML]="addDots(con)">
+    </mat-card-content>
+</mat-card>
+ -->
+
+<!-- <div fxLayout='row' fxLayoutWrap fxLayoutGap="2rem">
+    <md-card fxFlex.gt-md="20" fxFlex.md="28" fxFlex.sm="40" fxFlex.xs="100" *ngFor="let con of content1" class="recipe-card">
+        <md-card-header>
+            <md-card-title>element</md-card-title>
+        </md-card-header>
+        <md-card-content [innerHTML]="addDots(con)">
+        </md-card-content>
+    </md-card>
+</div> -->
+
+<!-- <md-card class="container" *ngFor="let con of content1">
+
+    <md-card class="item" [innerHTML]="addDots(con)">
+    </md-card>
+
+
+
+
+</md-card> -->
+
+<!-- <md-grid-list cols="4" rowHeight="200px">
+    <md-grid-tile *ngFor="let con of content1">
+
+    </md-grid-tile>
+
+</md-grid-list> -->
+
+
+<div class="gridListdemoBasicUsage">
+    <div class='md-padding' layout="row" layout-wrap>
+        <md-card flex-sm="25" flex-gt-sm="30" flex="100" ng-repeat="n in [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]" *ngFor="let con of content1">
+            <md-card-content [innerHTML]="addDots(con)">
+
+            </md-card-content>
+        </md-card>
+    </div>
+</div>
